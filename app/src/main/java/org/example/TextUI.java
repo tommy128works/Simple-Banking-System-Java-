@@ -14,8 +14,10 @@ public class TextUI {
     }
 
     public void start() {
-        this.printMenu();
-        this.processInput();
+        while (true) {
+            this.printMenu();
+            this.processInput();
+        }
     }
 
     public void printMenu() {
@@ -33,17 +35,20 @@ public class TextUI {
     }
 
     public void processInput() {
-        int input = Integer.parseInt(this.scanner.nextLine());
+        String input = this.scanner.nextLine();
+        System.out.println();
+        int num = Integer.parseInt(input);
 
         // Exit case
-        if (input == 0) {
+        if (num == 0) {
             System.out.println("Bye!");
             System.exit(0);
         }
 
         if (this.isLoggedIn) {
-            switch (input) {
+            switch (num) {
                 case 1:
+
                     break;
                 case 2:
                     break;
@@ -52,13 +57,15 @@ public class TextUI {
                     break;
             }
 
-
-
         } else {
-            switch (input) {
+            switch (num) {
                 case 1:
+                    String[] cardDetails = this.service.createCard();
+                    this.printCreatedCard(cardDetails[0], cardDetails[1]);
+                    System.out.println();
                     break;
                 case 2:
+
                     break;
                 default:
                     System.out.println("No cases found");
@@ -66,6 +73,14 @@ public class TextUI {
             }
 
         }
+    }
+
+    public void printCreatedCard(String card, String pin) {
+        System.out.println("Your card has been created");
+        System.out.println("Your card number:");
+        System.out.println(card);
+        System.out.println("Your card PIN:");
+        System.out.println(pin);
     }
 
 }

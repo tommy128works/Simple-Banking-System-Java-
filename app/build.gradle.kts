@@ -10,6 +10,11 @@ plugins {
     application
 }
 
+tasks.named<JavaExec>("run") {
+    // Forward standard input so Scanner can read from console
+    standardInput = System.`in`
+}
+
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
