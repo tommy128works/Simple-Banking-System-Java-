@@ -51,6 +51,9 @@ public class TextUI {
                     this.getBalance();
                     break;
                 case 2:
+                    this.setIsLoggedIn(false);
+                    System.out.println("You have successfully logged out!");
+                    System.out.println();
                     break;
                 default:
                     System.out.println("No cases found");
