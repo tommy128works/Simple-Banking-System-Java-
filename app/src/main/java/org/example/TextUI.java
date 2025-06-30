@@ -48,7 +48,7 @@ public class TextUI {
         if (this.isLoggedIn) {
             switch (num) {
                 case 1:
-
+                    this.getBalance();
                     break;
                 case 2:
                     break;
@@ -65,14 +65,7 @@ public class TextUI {
                     System.out.println();
                     break;
                 case 2:
-                    // ask for account information
-
-                    // check if credentials exist in system
-
-                    // print results and return to correct menu
-
                     this.processLogin();
-
                     break;
                 default:
                     System.out.println("No cases found");
@@ -108,6 +101,11 @@ public class TextUI {
 
     public void setIsLoggedIn(boolean value) {
         this.isLoggedIn = value;
+    }
+
+    public void getBalance() {
+        System.out.println("Balance: " + this.service.getBalance());
+        System.out.println();
     }
 
 }

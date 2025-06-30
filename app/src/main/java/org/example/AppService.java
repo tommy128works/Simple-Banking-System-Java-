@@ -8,11 +8,13 @@ public class AppService {
 //    private String accountIdentifier;
     private List<String> cards;
     private List<String> pins;
+    private List<Integer> balances;
 
     public AppService() {
         this.BIN = "400000";
         this.cards = new ArrayList<String>();
         this.pins = new ArrayList<String>();
+        this.balances = new ArrayList<Integer>();
     }
 
     public String[] createCard() {
@@ -20,6 +22,8 @@ public class AppService {
         this.cards.add(card);
         String pin = "1234";
         this.pins.add(pin);
+        int balance = 0;
+        this.balances.add(balance);
         return new String[] {card, pin};
     }
 
@@ -36,5 +40,7 @@ public class AppService {
         return false;
     }
 
-
+    public int getBalance() {
+        return this.balances.get(0);
+    }
 }
