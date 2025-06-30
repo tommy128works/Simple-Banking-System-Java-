@@ -23,5 +23,18 @@ public class AppService {
         return new String[] {card, pin};
     }
 
+    public boolean verifyLogin(String cardInput, String pinInput) {
+        for (String card : this.cards) {
+            if (card.equals(cardInput)) {
+                for (String pin : this.pins) {
+                    if (pin.equals(pinInput)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
 
 }

@@ -65,6 +65,13 @@ public class TextUI {
                     System.out.println();
                     break;
                 case 2:
+                    // ask for account information
+
+                    // check if credentials exist in system
+
+                    // print results and return to correct menu
+
+                    this.processLogin();
 
                     break;
                 default:
@@ -81,6 +88,26 @@ public class TextUI {
         System.out.println(card);
         System.out.println("Your card PIN:");
         System.out.println(pin);
+    }
+
+    public void processLogin() {
+        System.out.println("Enter your card number:");
+        String cardInput = this.scanner.nextLine();
+        System.out.println("Enter your PIN:");
+        String pinInput = this.scanner.nextLine();
+        System.out.println();
+
+        if (this.service.verifyLogin(cardInput, pinInput)) {
+            this.setIsLoggedIn(true);
+            System.out.println("You have successfully logged in!");
+        } else {
+            System.out.println("Wrong card number or PIN!");
+        }
+        System.out.println();
+    }
+
+    public void setIsLoggedIn(boolean value) {
+        this.isLoggedIn = value;
     }
 
 }
