@@ -31,6 +31,10 @@ dependencies {
 
     // SQLite
     implementation("org.xerial:sqlite-jdbc:3.45.1.0")
+
+    // Logging - no operation implemented - no logging
+    implementation("org.slf4j:slf4j-api:2.0.13")
+    runtimeOnly("org.slf4j:slf4j-nop:2.0.13")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
