@@ -5,11 +5,13 @@ import java.util.Scanner;
 public class TextUI {
     private final Scanner scanner;
     private final AppService service;
+    private final CardDb db;
     private boolean isLoggedIn;
 
-    public TextUI(AppService service) {
+    public TextUI(AppService service, CardDb db) {
         this.scanner = new Scanner(System.in);
         this.service = service;
+        this.db = db;
         this.isLoggedIn = false;
     }
 
@@ -42,6 +44,7 @@ public class TextUI {
         // Exit case
         if (num == 0) {
             System.out.println("Bye!");
+            this.scanner.close();
             System.exit(0);
         }
 
