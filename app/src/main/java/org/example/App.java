@@ -7,9 +7,9 @@ public class App {
 //        new TestDb().connect();
 
 
-        AppService service = new AppService();
         CardDb db = new CardDb();
-        TextUI ui = new TextUI(service, db);
+        AppService service = new AppService(db);
+        TextUI ui = new TextUI(service);
         ui.start();
 
     }
